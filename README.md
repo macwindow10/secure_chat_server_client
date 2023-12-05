@@ -1,2 +1,3 @@
 # secure_chat_server_client
-Secure Chat Server &amp; Client
+Secure Chat Server &amp; Client using OpenSSL
+

@@ -1,5 +1,5 @@
 
-#include "client.h"
+#include "SecureClient.cpp"
 #include "SecureServer.cpp"
 
 using namespace std;
@@ -15,9 +15,9 @@ int main(int argc, char **argv)
 {
     SSL_library_init();
     
-    OpenSSL_add_all_algorithms();
-    
     SSL_load_error_strings();
+
+    OpenSSL_add_all_algorithms();
     
     // check number of parameters
     if (argc != 3)
@@ -26,17 +26,17 @@ int main(int argc, char **argv)
         return -1;
     }
 
-    int port = atoi(argv[2]);
+    int portNumber = atoi(argv[2]);
 
-    if (strcmp("server", argv[1]) == 0 && port > 1024)
+    if (strcmp("server", argv[1]) == 0)
     {
         // run application as server application
-        SecureServer secure_server(port);
+        SecureServer secure_server(portNumber);
     }
-    else if (strcmp("client", argv[1]) == 0 && port > 1024)
+    else if (strcmp("client", argv[1]) == 0)
     {
         // run application as client application
-        Client lClient(port);
+        SecureClient secure_client(portNumber);
     }
     else
     {
