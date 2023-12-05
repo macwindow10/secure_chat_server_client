@@ -1,6 +1,6 @@
 
 #include "client.h"
-#include "SecureServer.h"
+#include "SecureServer.cpp"
 
 using namespace std;
 

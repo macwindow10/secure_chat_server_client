@@ -1,8 +1,8 @@
 
 
 ./secure_chat_application server 8888
-./secure_chat_application server 8889
-./secure_chat_application server 8890
+./secure_chat_application client 8889
+./secure_chat_application client 8890
 register 127.0.0.1 8888
 connect 127.0.0.1 8889
 

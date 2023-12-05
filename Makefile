@@ -6,7 +6,7 @@ secure_chat_application: SecureChatApplication.o SecureServer.o client.o
 SecureChatApplication.o: SecureChatApplication.cpp
 	g++ -g -c SecureChatApplication.cpp
 
-server.o: SecureServer.cpp
+SecureServer.o: SecureServer.cpp
 	g++ -g -c SecureServer.cpp 
 
 client.o: client.cpp
