@@ -22,7 +22,9 @@ class SecureServer
 {
 public:
 	SecureServer(int portNumber) {
-		cout << "**** Secure Chat Server Started****" << endl;
+		cout << "************************************" << endl;
+		cout << "**** Secure Chat Server Started ****" << endl;
+		cout << "************************************" << endl;
 
 		this->serverListeningPort = portNumber;
 		
