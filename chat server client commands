@@ -1,0 +1,17 @@
+
+
+./app server 8888
+./app client 8888
+register 127.0.0.1 8888
+connect 127.0.0.1 8889
+
+
+git remote add origin https://github.com/macwindow10/secure_chat_server_client.git
+git remote set-url origin https://github.com/macwindow10/secure_chat_server_client
+
+git config --global user.email "mac.window.10@gmail.com"
+git config --global user.name "Ubuntu"
+
+
+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
+
