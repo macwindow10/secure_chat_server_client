@@ -20,29 +20,38 @@ using namespace std;
 
 class SecureServer
 {
+public:
+	SecureServer(int portNumber) {
+		cout << "**** Secure Chat Server Started****" << endl;
+
+		this->serverListeningPort = portNumber;
+		
+		FD_ZERO(&globalFieldDescriptor);
+		FD_ZERO(&readFieldDescriptor);
+
+		// starting event handler
+		listeningEvents();
+	}
+	
+	~SecureServer() {
+
+	}
+
 private:
+	fd_set readFieldDescriptor;
+	fd_set globalFieldDescriptor;
 	// listening port of secure chat server
 	int serverListeningPort;
-	int m_nListenSd;
-	int m_nMaxFd;
-	fd_set m_masterSet;
-	fd_set m_readSet;
-
-public:
-	// Constructor and destructor
-	SecureServer(int port);
-	~SecureServer();
-
+	int listeningSocketDescriptor;
 private:
-	void startListener();
-	void eventHandler();
+	void verifyCertificates(SSL_CTX *ssl_context, const char *certificateKeyFile, const char *certificateFile);
+	void sslHandshake(SSL *ssl);
+	SSL_CTX *initializeSSLContext(void);
+private:
+	void listeningEvents();
+	void startListeningServer();
 	void commandShell();
 	void displayUsage();
-
-	SSL_CTX *InitServerCTX(void);
-	void LoadCertificates(SSL_CTX *ctx, const char *CertFile, const char *KeyFile);
-	void ShowCerts(SSL *ssl);
-	void Servlet(SSL *ssl);
 };
 
 #endif
